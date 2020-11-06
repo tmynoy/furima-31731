@@ -52,11 +52,12 @@
 | Column         | Type       | Options                        |
 | -------------- | ---------- | ------------------------------ |
 | postal         | string     | null: false                    |
-| prefectures    | string     | null: false                    |
+| area_id        | integer    | null: false                    |
 | municipalities | string     | null: false                    |
-| building_name  | string     | null: true                     |
+| building_name  | string     |                                |
 | block          | string     | null: false                    |
 | tell_num       | string     | null: false                    |
+| order          | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :order
