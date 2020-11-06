@@ -2,18 +2,16 @@
 
 ## users テーブル
 
-| Column           | Type    | Options     |
-| ---------------- | ------- | ----------- |
-| nickname         | string  | null: false |
-| email            | string  | null: false |
-| password         | string  | null: false |
-| first_name       | string  | null: false |
-| last_name        | string  | null: false |
-| first_name_check | string  | null: false |
-| last_name_check  | string  | null: false |
-| birth_year       | integer | null: false |
-| birth_month      | integer | null: false |
-| birth_day        | integer | null: false |
+| Column             | Type    | Options     |
+| ------------------ | ------- | ----------- |
+| nickname           | string  | null: false |
+| email              | string  | null: false |
+| encrypted_password | string  | null: false |
+| first_name         | string  | null: false |
+| last_name          | string  | null: false |
+| first_name_check   | string  | null: false |
+| last_name_check    | string  | null: false |
+| birthday           | integer | null: false |
 
 ### Association
 - has_many :items
@@ -24,14 +22,14 @@
 | Column      | Type       | Options                        |
 | ----------- | ---------- | ------------------------------ |
 | name        | string     | null: false                    |
-| category    | string     | null: false                    |
-| status      | string     | null: false                    |
+| category    | integer    | null: false                    |
+| status      | integer    | null: false                    |
 | price       | integer    | null: false                    |
-| payment     | string     | null: false                    |
-| area        | string     | null: false                    |
-| send_days   | string     | null: false                    |
+| payment     | integer    | null: false                    |
+| area        | integer    | null: false                    |
+| send_days   | integer    | null: false                    |
 | explanation | text       | null: false                    |
-| user_id     | references | null: false, foreign_key: true |
+| user        | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :user
@@ -41,13 +39,8 @@
 
 | Column         | Type       | Options                        |
 | -------------- | ---------- | ------------------------------ |
-| card_num       | integer    | null: false                    |
-| exp_month      | integer    | null: false                    |
-| exp_year       | integer    | null: false                    |
-| security       | integer    | null: false                    |
-| user_id        | references | null: false, foreign_key: true |
-| item_id        | references | null: false, foreign_key: true |
-| address_id     | references | null: false, foreign_key: true |
+| user           | references | null: false, foreign_key: true |
+| item           | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :item
@@ -61,9 +54,9 @@
 | postal         | string     | null: false                    |
 | prefectures    | string     | null: false                    |
 | municipalities | string     | null: false                    |
-| building_name  | string     | null: false                    |
-| block          | string     | null: false,                   |
-| tell_num       | integer    | null: false,                   |
+| building_name  | string     | null: true                     |
+| block          | string     | null: false                    |
+| tell_num       | string     | null: false                    |
 
 ### Association
 - belongs_to :order
