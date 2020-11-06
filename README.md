@@ -11,7 +11,7 @@
 | last_name          | string  | null: false |
 | first_name_check   | string  | null: false |
 | last_name_check    | string  | null: false |
-| birthday           | integer | null: false |
+| birthday           | date    | null: false |
 
 ### Association
 - has_many :items
@@ -19,17 +19,17 @@
 
 ## items テーブル
 
-| Column      | Type       | Options                        |
-| ----------- | ---------- | ------------------------------ |
-| name        | string     | null: false                    |
-| category    | integer    | null: false                    |
-| status      | integer    | null: false                    |
-| price       | integer    | null: false                    |
-| payment     | integer    | null: false                    |
-| area        | integer    | null: false                    |
-| send_days   | integer    | null: false                    |
-| explanation | text       | null: false                    |
-| user        | references | null: false, foreign_key: true |
+| Column       | Type       | Options                        |
+| ------------ | ---------- | ------------------------------ |
+| name         | string     | null: false                    |
+| category_id  | integer    | null: false                    |
+| status_id    | integer    | null: false                    |
+| price        | integer    | null: false                    |
+| payment_id   | integer    | null: false                    |
+| area_id      | integer    | null: false                    |
+| send_days_id | integer    | null: false                    |
+| explanation  | text       | null: false                    |
+| user         | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :user
