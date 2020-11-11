@@ -55,7 +55,7 @@ RSpec.describe Item, type: :model do
       expect(@item.errors.full_messages).to include("Area must be other than 1")
     end
     it "send_day_idの選択なしで出品できない" do
-      @item.send_day_id = "1"
+      @item.send_day_id = 1
       @item.valid?
       expect(@item.errors.full_messages).to include("Send day must be other than 1")
     end
@@ -70,12 +70,12 @@ RSpec.describe Item, type: :model do
       expect(@item.errors.full_messages).to include("Price is invalid")
     end
     it "priceが300未満だと出品できない" do
-      @item.price = "200"
+      @item.price = 299
       @item.valid?
       expect(@item.errors.full_messages).to include("Price is invalid")
     end
     it "priceが9999999より大きいと出品できない" do
-      @item.price = "10000000"
+      @item.price = 10000000
       @item.valid?
       expect(@item.errors.full_messages).to include("Price is invalid")
     end
