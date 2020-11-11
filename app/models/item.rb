@@ -13,8 +13,8 @@ class Item < ApplicationRecord
     validates :name, length: { maximum: 40 }
     validates :image
     validates :explanation, length: { maximum: 1000 }
-    PRICE_REGEX = /\A[0-9]+\z/
-    validates :price, :numericality => { :greater_than_or_equal_to => 300, :less_than_or_equal_to => 9999999, :message => 'is invalid'}, format: { with:PRICE_REGEX }
+    PRICE_REGEX = /\A[0-9]+\z/.freeze
+    validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999, message: 'is invalid' }, format: { with: PRICE_REGEX }
   end
 
   with_options numericality: { other_than: 1 } do

@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:new]
-  
+
   def index
     @items = Item.all
   end
@@ -19,6 +19,7 @@ class ItemsController < ApplicationController
   end
 
   private
+
   def item_params
     params.require(:item).permit(:name, :category_id, :status_id, :price, :payment_id, :area_id, :send_day_id, :explanation, :image).merge(user_id: current_user.id)
   end
