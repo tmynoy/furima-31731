@@ -9,6 +9,8 @@ class OrderAddress
     validates :block
     validates :tell_num, format: {with: /\A\d{10,11}\z/ }
     validates :token
+    validates :item_id
+    validates :user_id
   end
   validates :area_id, numericality: { other_than: 1 }
 
